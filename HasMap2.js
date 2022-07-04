@@ -18,9 +18,14 @@ class NaiveHashTable {
         for (let i = 0; i < data.length; i++) {
             total += hornersPrimeConstant * total + data.charCodeAt(i);
         }
+        let position = total % this.table.length;
 
-       let position = parseInt(total % this.table.length)
-        return position;
+        if (total < 0) {
+            total += this.table.length-1;
+            }
+
+       
+        return parseInt(total);
     }
 
 
