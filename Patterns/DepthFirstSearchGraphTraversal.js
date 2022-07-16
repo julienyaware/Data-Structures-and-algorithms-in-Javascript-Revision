@@ -1,8 +1,8 @@
 const graph = {
-    a:[],
-    b:[],
-    c:[],
-    d:[],
+    a:['b','c'],
+    b:['d'],
+    c:['e'],
+    d:['f'],
     e:[],
     f:[]
 }
@@ -19,4 +19,14 @@ const dfs = (graph, BeginingSource) => {
         }
     }
 
+}
+
+// Recursive DFS
+
+const recursiveDFS = (graph,source) => {
+    console.log(source)
+    // No need for a base case because we have empty arrays which are considered as dead ends e and f
+    for(let neigbor of graph[source]) {
+        recursiveDFS(graph, neigbor)
+    }
 }
